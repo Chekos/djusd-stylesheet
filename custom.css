@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+
+td {
+    font-size: 18px;
+    font-family: "Monserrat";
+    color: #282828;
+}
+#color-tag {
+    font-weight: bolder;
+    font-family: "Monserrat";
+    color: white;
+    -webkit-text-stroke: 0.2px #282828;
+    font-size: 24px;   
+}
+
+#color-tag-lt {
+    font-weight: bolder;
+    font-family: "Monserrat";
+    color: #282828;
+    /* -webkit-text-stroke: 0.2px #282828; */
+    font-size: 24px;   
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+code-cell {
+    font-weight: bold;
+}

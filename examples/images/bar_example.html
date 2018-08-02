@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+
+<script src="https://cdn.jsdelivr.net/npm//vega@3.3.1"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-lite@2.4.3"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-embed@3.11"></script>
+
+</head>
+<body>
+  <div id="vis"></div>
+  <script type="text/javascript">
+    var spec = {"width": 600, "height": 400, "background": "white", "config": {"view": {"height": 400, "width": 600, "background": "white", "stroke": null}, "title": {"offset": 20, "fontSize": 18, "fontColor": "#282828", "font": "helvetica", "anchor": "start"}, "legend": {"padding": 10, "titleFontSize": 11, "titleFont": "helvetica"}, "axis": {"labelColor": "#282828", "titleFont": "helvetica", "titleColor": "#282828"}, "mark": {"opacity": 0.95}, "axisY": {"grid": false, "labelPadding": 5, "titleAngle": 0, "titlePadding": 18, "titleFontSize": 16, "titleFont": "helvetica"}, "axisX": {"title": " ", "labelAngle": 0, "labelPadding": 0}}, "data": {"values": [{"school": "Birch Lane", "value": 28}, {"school": "Ch\u00e1vez", "value": 55}, {"school": "Fairfield", "value": 43}, {"school": "Korematsu", "value": 91}, {"school": "Montgomery", "value": 81}, {"school": "North Davis", "value": 53}, {"school": "Patwin", "value": 19}, {"school": "Pioneer", "value": 87}, {"school": "Willet", "value": 52}]}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "school", "legend": {"title": "School"}, "scale": {"domain": ["Birch Lane", "Ch\u00e1vez", "Fairfield", "Korematsu", "Montgomery", "North Davis", "Patwin", "Pioneer", "Willet"], "range": ["#185594", "#A51E22", "#4A443F", "#15A85C", "#E21E26", "#185594", "#4D3091", "#068945", "#1C4421"]}}, "tooltip": [{"type": "quantitative", "field": "value"}, {"type": "nominal", "field": "school"}], "x": {"type": "nominal", "field": "school"}, "y": {"type": "quantitative", "field": "value"}}, "title": "Bar Chart Example", "$schema": "https://vega.github.io/schema/vega-lite/v2.4.3.json"};
+    var embed_opt = {"mode": "vega-lite"};
+
+    function showError(el, error){
+        el.innerHTML = ('<div class="error">'
+                        + '<p>JavaScript Error: ' + error.message + '</p>'
+                        + "<p>This usually means there's a typo in your chart specification. "
+                        + "See the javascript console for the full traceback.</p>"
+                        + '</div>');
+        throw error;
+    }
+    const el = document.getElementById('vis');
+    vegaEmbed("#vis", spec, embed_opt)
+      .catch(error => showError(el, error));
+  </script>
+</body>
+</html>
